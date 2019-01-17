@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Logo from './Logo';
+import './Login.css';
 
 class Login extends Component {
     render() {
@@ -10,14 +11,15 @@ class Login extends Component {
                 <div className="login">
                     <Form>
                         <FormGroup inline>
-                            <Label for="exampleEmail" hidden>Email</Label>
-                            <Input type="email" name="email" id="exampleEmail" placeholder="Email" />
+                            <Label for="email" hidden>username</Label>
+                            <Input type="email" name="email" id="exampleEmail" placeholder="username" />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="examplePassword" hidden>Password</Label>
-                            <Input type="password" name="password" id="examplePassword" placeholder="Password" />
+                            <Label for="password" hidden>password</Label>
+                            <Input type="password" name="password" id="password" placeholder="password" />
                         </FormGroup>
-                        <Button>Submit</Button>
+                        <Button>Login</Button>
+                        <a href="/">Create Account</a>
                     </Form>
                 </div>
             </div>

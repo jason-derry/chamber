@@ -1,0 +1,61 @@
+.login {
+    position: fixed;
+    background-color:rgba(255, 255, 255, 0.8);
+    width: 320px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    padding: 50px;
+    margin-top: -200px;
+    margin-left: -150px;
+    border-radius: 20px;
+  }
+  
+  .login Button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 220px;
+  }
+  
+  .login a {
+    position: absolute;
+    margin-left: 18%;
+    margin-top: 14px;
+  }
+  
+  .logoText {
+    font-family: "Stencil","Copperplate Gothic Light";
+    position: fixed;
+    top: 18vh;
+    left: 50%;
+    opacity: 0.99;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow:
+          -2px -2px 0 #000,
+          2px -2px 0 #000,
+          -2px 2px 0 #000,
+          2px 2px 0 #000;
+    font-size: 10vh;
+  }
+  
+  img.frontPic {
+    display: block;
+    margin-top:-11vh;
+    margin-left: auto;
+    margin-right: auto;
+    max-height:15vh;
+    max-width:90vw;
+    margin-top: 11vh;
+    animation: img-spin infinite 30s linear;
+  }
+  
+  @keyframes img-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } 
