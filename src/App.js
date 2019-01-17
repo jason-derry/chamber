@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './Login';
+import Routing from './Routing';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div class="bg-image" />
-        <Login />
-      </div>
+        <div className="App">
+          <div class="bg-image" />
+          <Routing />
+        </div>
     );
   }
 }
