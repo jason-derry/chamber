@@ -48,12 +48,12 @@ class Navigation extends Component {
                                 <DropdownMenu left>
                                     <DropdownItem href="/weapons">All Weapons</DropdownItem>
                                     <DropdownItem divider />
-                                    <DropdownItem>Assault</DropdownItem>
-                                    <DropdownItem>Handgun</DropdownItem>
-                                    <DropdownItem>LMG</DropdownItem>
-                                    <DropdownItem>Rifle</DropdownItem>
-                                    <DropdownItem>Shotgun</DropdownItem>
-                                    <DropdownItem>SMG</DropdownItem>
+                                    <DropdownItem href="/weapons?type=Assault">Assault</DropdownItem>
+                                    <DropdownItem href="/weapons?type=Handgun">Handgun</DropdownItem>
+                                    <DropdownItem href="/weapons?type=LMG">LMG</DropdownItem>
+                                    <DropdownItem href="/weapons?type=Rifle">Rifle</DropdownItem>
+                                    <DropdownItem href="/weapons?type=Shotgun">Shotgun</DropdownItem>
+                                    <DropdownItem href="/weapons?type=SMG">SMG</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                             <UncontrolledDropdown nav inNavbar>

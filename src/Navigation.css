@@ -33,7 +33,7 @@
   
   .text {
     font-family: "Stencil","Copperplate Gothic Light";
-    position: fixed;
+    /* position: absolute; */
     top: 25vh;
     left: 50%;
     opacity: 0.99;
