@@ -11,10 +11,15 @@
     border-radius: 20px;
   }
   
-  .login Button {
+  .loginButton a {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 220px;
+  }
+
+  Button {
+    margin-left: 20px;
     width: 220px;
   }
   
@@ -23,7 +28,7 @@
     margin-left: 18%;
     margin-top: 14px;
   }
-  
+
   .logoText {
     font-family: "Stencil","Copperplate Gothic Light";
     position: fixed;
@@ -40,14 +45,27 @@
     font-size: 10vh;
   }
   
+  .logLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    text-shadow:
+          -2px -2px 0 #000,
+          2px -2px 0 #000,
+          -2px 2px 0 #000,
+          2px 2px 0 #000;
+    font-size: 10vh;
+    margin-top: 28vh;
+  }
+  
   img.frontPic {
     display: block;
-    margin-top:-11vh;
     margin-left: auto;
     margin-right: auto;
     max-height:15vh;
     max-width:90vw;
-    margin-top: 11vh;
+    margin-top: 100px;
     animation: img-spin infinite 30s linear;
   }
   
