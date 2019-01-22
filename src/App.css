@@ -11,3 +11,8 @@
   width: 100%;
 }
 
+.layout-content-wrapper {
+  position: fixed;
+  margin: 50px;
+  color: white;
+}

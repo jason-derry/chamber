@@ -46,7 +46,7 @@ class Navigation extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Weapons</DropdownToggle>
                                 <DropdownMenu left>
-                                    <DropdownItem>All Weapons</DropdownItem>
+                                    <DropdownItem href="/weapons">All Weapons</DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>Assault</DropdownItem>
                                     <DropdownItem>Handgun</DropdownItem>
