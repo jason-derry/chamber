@@ -10,12 +10,13 @@ class Routing extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/nav" component={Navigation} />
-          <Route path="/weapons" component={WeaponList} />
+          <Route exact path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          </div>
-      </Router>
+
+          <Route exact path="/" component={Navigation} />
+          <Route path="/weapons" component={WeaponList} />
+        </div>
+      </Router >
     );
   }
 }

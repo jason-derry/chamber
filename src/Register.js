@@ -3,39 +3,41 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Logo from './Logo';
 import './Register.css';
 import axios from 'axios';
-import { BrowserRouter as Link } from "react-router-dom";
+import { doesNotReject } from 'assert';
+const bcrypt = require('bcryptjs');
 
 class Register extends Component {
     constructor() {
         super();
         this.state = {
-          username: "",
-          password: "",
-          email: "",
+            username: "",
+            password: "",
+            email: "",
         };
-      }
+    }
 
-      handleUsernameChange = (event) => {
-         this.setState({username: event.target.value});
-      }
-      handleEmailChange = (event) => {
-        this.setState({email: event.target.value});
-     }
-     handlePasswordChange = (event) => {
-        this.setState({password: event.target.value});
-     }
-        
+    handleUsernameChange = (event) => {
+        this.setState({ username: event.target.value });
+    }
+    handleEmailChange = (event) => {
+        this.setState({ email: event.target.value });
+    }
+    handlePasswordChange = (event) => {
+        this.setState({ password: event.target.value });
+    }
+
     handleInput = () => {
+        var hash = bcrypt.hashSync(this.state.password, 10);
         axios({
             method: "post",
             url: "http://localhost:8081/chamber-api/api/chamber/createAccount",
             data: {
                 username: this.state.username,
-                password: this.state.password,
+                password: hash,
                 email: this.state.email
             }
         });
-      }
+    }
 
     render() {
         return (

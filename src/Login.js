@@ -19,7 +19,7 @@ class Login extends Component {
                             <Label for="password" hidden>password</Label>
                             <Input type="password" name="password" id="password" placeholder="password" />
                         </FormGroup>
-                        <Link to="/nav">
+                        <Link to="/">
                         <Button className="loginButton">Login</Button>
                         </Link><br/>
                         <a href="/register">Create Account</a>
