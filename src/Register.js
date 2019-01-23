@@ -28,7 +28,7 @@ class Register extends Component {
     handleInput = () => {
         axios({
             method: "post",
-            url: "http://localhost:8081/chamber-api/api/chamber/createAccount",
+            url: "http://localhost:8080/chamber-api/api/chamber/createAccount",
             data: {
                 username: this.state.username,
                 password: this.state.password,
