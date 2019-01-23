@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Login from './Login';
 import Navigation from './Navigation';
-import WeaponList from './WeaponList';
 import Register from './Register';
+import WeaponList from './WeaponList';
+import PlayerList from './PlayerList';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Routing extends Component {
@@ -12,8 +13,9 @@ class Routing extends Component {
         <div>
           <Route exact path="/" component={Login} />
           <Route exact path="/nav" component={Navigation} />
-          <Route path="/weapons" component={WeaponList} />
           <Route path="/register" component={Register} />
+          <Route path="/weapons" component={WeaponList} />
+          <Route path="/players" component={PlayerList} />
           </div>
       </Router>
     );
