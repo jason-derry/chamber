@@ -34,7 +34,7 @@ class Navigation extends Component {
     render() {
         return (
             <div className="navbar">
-                <a href="/">
+                <a href="/login">
                 <img className="signout" src="https://image.freepik.com/free-icon/power-symbol-in-a-circle-in-black-and-white_318-50454.jpg" alt="sign out"/>
                 </a>
                 <div className="navLogo"><Logo /></div>
