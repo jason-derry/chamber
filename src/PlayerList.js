@@ -14,7 +14,7 @@ class PlayerList extends Component {
     componentDidMount() {
         axios({
             method: "get",
-            url: "http://localhost:8080/chamber-api/api/chamber/getAllAccounts",
+            url: "http://localhost:8081/chamber-api/api/chamber/getAllAccounts",
             responseType: "json"
         }).then(response => {
             this.setState({ player: response.data });
@@ -27,6 +27,8 @@ class PlayerList extends Component {
         const players = this.state.player.map((item, i) => (
             <tr>
                 <td>{item.username}</td>
+                <td>{item.email}</td>
+                <td>{item.password}</td>
             </tr>
         ));
 
@@ -36,6 +38,8 @@ class PlayerList extends Component {
                 <Table dark bordered hover striped size="m">
                     <thead><tr>
                         <th>Name</th>
+                        <th>email</th>
+                        <th>password</th>
                     </tr></thead>
                     <tbody>
                         {players}

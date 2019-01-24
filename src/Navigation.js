@@ -39,7 +39,7 @@ class Navigation extends Component {
                 </a>
                 <div className="navLogo"><Logo /></div>
 
-                <Navbar dark color="dark" light expand="md">
+                <Navbar className="homeNav" dark color="dark" light expand="md">
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav navbar>
