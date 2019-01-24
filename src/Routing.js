@@ -13,7 +13,7 @@ class Routing extends Component {
         <div>
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Navigation} />
-          <Route exact path="/register" component={Register} />
+          <Route path="/register" component={Register} />
           <Route path="/weapons" component={WeaponList} />
           <Route path="/players" component={PlayerList} />
           </div>
