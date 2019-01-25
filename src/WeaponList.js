@@ -13,8 +13,11 @@ class WeaponList extends Component {
         this.state = { weapon: [] };
     }
 
+    handleBack = () => {
+        this.props.history.push('/');
+    }
+
     handleClick = (item) => {
-        // console.log(item.id);
         this.props.history.push('/weapons/' + item.id);
     }
 
@@ -43,7 +46,7 @@ class WeaponList extends Component {
             <div id="layout-content" className="layout-content-wrapper">
                 {/* <Navigation /> */}
                 <Table dark bordered hover striped size="m">
-                    <thead><tr>
+                    <thead><tr onClick={this.handleBack}>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Ammo</th>

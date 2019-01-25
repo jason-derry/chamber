@@ -10,6 +10,10 @@ class Weapon extends Component {
 
         this.state = { weapon: [] };
     }
+    
+    handleClick = () => {
+        this.props.history.push('/weapons/');
+    }
 
     componentDidMount() {
         var id = window.location.pathname.split("/").slice(-1)[0];
@@ -23,15 +27,13 @@ class Weapon extends Component {
         })
     }
 
-
-
     render() {
 
         return (
             <div id="layout-content" className="layout-content-wrapper">
                 {/* <Navigation /> */}
                 <Table dark bordered hover striped size="m">
-                    <thead><tr>
+                    <thead><tr onClick={this.handleClick}>
                         <th>Name</th>
                         <th>Type</th>
                         <th>Ammo</th>

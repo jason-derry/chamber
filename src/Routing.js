@@ -8,6 +8,16 @@ import PlayerList from './PlayerList';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Routing extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { isLoggedIn: false };
+  }
+
+  componentDidMount() {
+    console.log(this.state.isLoggedIn);
+  }
+
   render() {
     return (
       <Router>
@@ -15,11 +25,11 @@ class Routing extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Navigation} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/weapons" component={WeaponList} />
+          <Route exact path="/weapons" component={WeaponList}  />
           <Route exact path="/weapons/:id" component={Weapon} />
           <Route exact path="/players" component={PlayerList} />
-          </div>
-      </Router>
+        </div>
+      </Router >
     );
   }
 }

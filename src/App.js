@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-          <div class="bg-image" />
+          <div className="bg-image" />
           <Routing />
         </div>
     );
