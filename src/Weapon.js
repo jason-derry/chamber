@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from 'reactstrap';
-import './WeaponList.css';
+import './Weapon.css';
 
 
 class Weapon extends Component {
@@ -10,17 +10,15 @@ class Weapon extends Component {
 
         this.state = { weapon: [] };
     }
-    
+
     handleClick = () => {
         this.props.history.push('/weapons/');
     }
 
     componentDidMount() {
-        var id = window.location.pathname.split("/").slice(-1)[0];
-        console.log(id);
         axios({
             method: "get",
-            url: "http://localhost:8081/chamber-api/api/chamber/weapons/" + id,
+            url: "http://localhost:8081/chamber-api/api/chamber/weapons/" + this.props.match.params.id,
             responseType: "json"
         }).then(response => {
             this.setState({ weapon: response.data });
@@ -30,19 +28,24 @@ class Weapon extends Component {
     render() {
 
         return (
-            <div id="layout-content" className="layout-content-wrapper">
+            <div className="gunDeets">
                 {/* <Navigation /> */}
-                <Table dark bordered hover striped size="m">
+                <img className="gunImage" src={"/gun_images/" + "placeholder" + ".png"} alt="gun" />
+                <Table dark bordered hover striped size="m" id="gunDetails" className="gunDetails">
                     <thead><tr onClick={this.handleClick}>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Ammo</th>
+                        <th></th>
                     </tr></thead>
                     <tbody>
-                        <td>{this.state.weapon.name}</td>
-                        <td>{this.state.weapon.type}</td>
-                        <td>{this.state.weapon.ammo}</td>
+                        <tr><td>Name</td><td>{this.state.weapon.name}</td></tr>
+                        <tr><td>Type</td><td>{this.state.weapon.type}</td></tr>
+                        <tr><td>Ammo</td><td>{this.state.weapon.ammo}</td></tr>
+                        <tr><td>Weight</td><td>{this.state.weapon.weight}kg</td></tr>
+                        <tr><td>Mag Size</td><td>{this.state.weapon.magSize}</td></tr>
+                        <tr><td>Reload Time</td><td>{this.state.weapon.reloadSpd}s</td></tr>
+                        <tr><td>Rate of Fire</td><td>{this.state.weapon.rof}rds/min</td></tr>
+                        <tr><td>Effective Range</td><td>{this.state.weapon.range}m</td></tr>
                     </tbody>
+
                 </Table>
             </div>
         );

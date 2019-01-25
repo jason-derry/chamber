@@ -56,7 +56,7 @@ class Navigation extends Component {
                                     <DropdownItem href="/weapons?type=SMG">SMG</DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
-                            <UncontrolledDropdown nav inNavbar>
+                            {/* <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Attachments</DropdownToggle>
                                 <DropdownMenu left>
                                     <DropdownItem>All Attachments</DropdownItem>
@@ -68,7 +68,7 @@ class Navigation extends Component {
                                     <DropdownItem>Grip</DropdownItem>
                                     <DropdownItem>Stock</DropdownItem>
                                 </DropdownMenu>
-                            </UncontrolledDropdown>
+                            </UncontrolledDropdown> */}
                         </Nav>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
