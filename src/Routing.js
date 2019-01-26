@@ -25,7 +25,7 @@ class Routing extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Navigation} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/weapons" component={WeaponList}  />
+          <Route exact path="/weapons" component={WeaponList} />
           <Route exact path="/weapons/:id" component={Weapon} />
           <Route exact path="/players" component={PlayerList} />
         </div>

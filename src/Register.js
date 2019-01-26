@@ -34,7 +34,7 @@ class Register extends Component {
             var hash = bcrypt.hashSync(this.state.password, 10);
             axios({
                 method: "post",
-                url: "http://localhost:8081/chamber-api/api/chamber/createAccount",
+                url: "http://35.178.142.201:8081/chamber-api/api/chamber/createAccount",
                 data: {
                     username: this.state.username,
                     password: hash,
