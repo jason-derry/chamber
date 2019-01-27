@@ -30,7 +30,7 @@ class Weapon extends Component {
         return (
             <div className="gunDeets">
                 {/* <Navigation /> */}
-                <img className="gunImage" src={"/gun_images/" + "placeholder" + ".png"} alt="gun" />
+                <img className="gunImage" src={"/gun_images/" + this.state.weapon.name + ".png"} alt="gun" onerror="this.src='/gun_images/placeholder.png'" />
                 <Table dark bordered hover striped size="m" id="gunDetails" className="gunDetails">
                     <thead><tr onClick={this.handleClick}>
                         <th></th>

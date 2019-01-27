@@ -11,6 +11,14 @@ class PlayerList extends Component {
         this.state = { player: [] };
     }
 
+    handleBack = () => {
+        this.props.history.push('/');
+    }
+
+    handleClick = (item) => {
+        this.props.history.push('/players/' + item.id);
+    }
+
     componentDidMount() {
         axios({
             method: "get",
@@ -25,7 +33,7 @@ class PlayerList extends Component {
 
     render() {
         const players = this.state.player.map((item, i) => (
-            <tr>
+            <tr onClick={this.handleClick.bind(this, item)}>
                 <td>{item.username}</td>
             </tr>
         ));
@@ -34,7 +42,7 @@ class PlayerList extends Component {
             <div id="layout-content" className="layout-content-wrapper">
                 {/* <Navigation /> */}
                 <Table dark bordered hover striped size="m">
-                    <thead><tr>
+                    <thead><tr onClick={this.handleBack}>
                         <th>Name</th>
                     </tr></thead>
                     <tbody>

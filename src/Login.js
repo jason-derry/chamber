@@ -12,8 +12,8 @@ class Login extends Component {
                 <div className="login">
                     <Form>
                         <FormGroup inline>
-                            <Label for="email" hidden>username</Label>
-                            <Input type="email" name="email" id="exampleEmail" placeholder="username" />
+                            <Label for="username" hidden>username</Label>
+                            <Input type="username" name="username" id="username" placeholder="username" />
                         </FormGroup>
                         <FormGroup>
                             <Label for="password" hidden>password</Label>
