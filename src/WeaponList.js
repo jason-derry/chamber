@@ -24,7 +24,7 @@ class WeaponList extends Component {
     componentDidMount() {
         axios({
             method: "get",
-            url: "http://35.178.142.201:8081/chamber-api/api/chamber/weapons" + this.props.location.search,
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/weapons" + this.props.location.search,
             responseType: "json"
         }).then(response => {
             this.setState({ weapon: response.data });

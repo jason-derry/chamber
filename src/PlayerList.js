@@ -14,7 +14,7 @@ class PlayerList extends Component {
     componentDidMount() {
         axios({
             method: "get",
-            url: "http://35.178.142.201:8081/chamber-api/api/chamber/getAllAccounts",
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAllAccounts",
             responseType: "json"
         }).then(response => {
             this.setState({ player: response.data });
