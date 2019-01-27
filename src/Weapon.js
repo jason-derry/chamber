@@ -44,6 +44,7 @@ class Weapon extends Component {
                         <tr><td>Reload Time</td><td>{this.state.weapon.reloadSpd}s</td></tr>
                         <tr><td>Rate of Fire</td><td>{this.state.weapon.rof}rds/min</td></tr>
                         <tr><td>Effective Range</td><td>{this.state.weapon.range}m</td></tr>
+                        <tr><td>Price</td><td>${this.state.weapon.price}</td></tr>
                     </tbody>
 
                 </Table>

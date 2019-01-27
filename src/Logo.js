@@ -5,7 +5,7 @@ class Logo extends Component {
         return (
             <div className="logo">
                 <img src="/onechamberwhite.png" class="frontPic" alt="gun" />
-                <div class="logoText">chamber</div>
+                <div class="logoText">CHAMBER</div>
             </div>
         );
     }

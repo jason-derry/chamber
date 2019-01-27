@@ -32,7 +32,8 @@
   }
 
   .text {
-    font-family: "Stencil","Copperplate Gothic Light";
+    font-family: 'Allerta Stencil', sans-serif;
+    /* font-family: "Stencil","Copperplate Gothic Light"; */
     /* position: absolute; */
     top: 25vh;
     left: 50%;

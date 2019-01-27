@@ -39,6 +39,7 @@ class WeaponList extends Component {
                 <td>{item.name}</td>
                 <td>{item.type}</td>
                 <td>{item.ammo}</td>
+                <td>${item.price}</td>
             </tr>
         ));
 
@@ -50,6 +51,7 @@ class WeaponList extends Component {
                         <th>Name</th>
                         <th>Type</th>
                         <th>Ammo</th>
+                        <th>Cost</th>
                     </tr></thead>
                     <tbody>
                         {weapons}
