@@ -32,14 +32,13 @@ class Login extends Component {
             for (let account = 0; account < accounts.length; account++) {
                 if (((this.state.username === accounts[account].username) || (this.state.username === accounts[account].email)) &&
                     (bcrypt.compareSync(this.state.password, accounts[account].password))) {
-                
                     this.props.history.push("/");
                 }
             }
         });
     }
 
-    
+
     render() {
         return (
             <div>
@@ -55,7 +54,7 @@ class Login extends Component {
                             <Input type="password" name="password" id="password" placeholder="password" value={this.state.password} onChange={this.handlePasswordChange} />
                         </FormGroup>
                         <Button className="loginButton" onClick={this.handleInput}>Login</Button>
-                        <br/>
+                        <br />
                         <a href="/register">Create Account</a>
                     </Form>
                 </div>
