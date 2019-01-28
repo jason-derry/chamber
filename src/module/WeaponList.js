@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from 'reactstrap';
 import SmolNav from './SmolNav';
+import Navigation from './Navigation';
 import '../style/WeaponList.css';
 
 
@@ -44,7 +45,6 @@ class WeaponList extends Component {
 
         return (
             <div id="layout-content" className="layout-content-wrapper">
-                <SmolNav />
                 <Table dark bordered hover striped size="m">
                     <thead><tr onClick={this.handleBack}>
                         <th>Name</th>
