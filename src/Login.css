@@ -30,7 +30,8 @@
   }
 
   .logoText {
-    font-family: "Stencil","Copperplate Gothic Light";
+    font-family: 'Allerta Stencil', sans-serif;
+    /* font-family: "Stencil","Copperplate Gothic Light"; */
     position: fixed;
     top: 18vh;
     left: 50%;
