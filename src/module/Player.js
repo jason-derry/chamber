@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from 'reactstrap';
-import './Weapon.css';
+import '../style/Weapon.css';
 
 
 class Player extends Component {

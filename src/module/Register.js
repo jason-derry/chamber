@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Logo from './Logo';
-import './Register.css';
+import '../style/Register.css';
 import axios from 'axios';
 const bcrypt = require('bcryptjs');
 

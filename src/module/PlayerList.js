@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from 'reactstrap';
-import { withRouter } from 'react-router-dom';
-import Navigation from './Navigation';
-import './WeaponList.css';
+import '../style/WeaponList.css';
 
 
-class WeaponList extends Component {
+class PlayerList extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { weapon: [] };
+        this.state = { player: [] };
     }
 
     handleBack = () => {
@@ -18,28 +16,25 @@ class WeaponList extends Component {
     }
 
     handleClick = (item) => {
-        this.props.history.push('/weapons/' + item.id);
+        this.props.history.push('/players/' + item.id);
     }
 
     componentDidMount() {
         axios({
             method: "get",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/weapons" + this.props.location.search,
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAllAccounts",
             responseType: "json"
         }).then(response => {
-            this.setState({ weapon: response.data });
+            this.setState({ player: response.data });
         })
     }
 
  
 
     render() {
-        const weapons = this.state.weapon.map((item, i) => (
+        const players = this.state.player.map((item, i) => (
             <tr onClick={this.handleClick.bind(this, item)}>
-                <td>{item.name}</td>
-                <td>{item.type}</td>
-                <td>{item.ammo}</td>
-                <td>${item.price}</td>
+                <td>{item.username}</td>
             </tr>
         ));
 
@@ -49,16 +44,13 @@ class WeaponList extends Component {
                 <Table dark bordered hover striped size="m">
                     <thead><tr onClick={this.handleBack}>
                         <th>Name</th>
-                        <th>Type</th>
-                        <th>Ammo</th>
-                        <th>Cost</th>
                     </tr></thead>
                     <tbody>
-                        {weapons}
+                        {players}
                     </tbody>
                 </Table>
             </div>
         );
     }
 }
-export default WeaponList;
+export default PlayerList;
