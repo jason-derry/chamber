@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Table, Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { Table, Button, Modal, ModalBody, ModalFooter, Progress } from 'reactstrap';
 import '../style/Weapon.css';
 
 
@@ -10,7 +10,8 @@ class Player extends Component {
 
         this.state = {
             player: [],
-            modal: false
+            modal: false,
+            progress: 0
         };
 
         this.toggle = this.toggle.bind(this);
@@ -24,6 +25,10 @@ class Player extends Component {
 
     handleClick = () => {
         this.props.history.push('/players/');
+    }
+
+    handleBar = () => {
+        this.setState({ progress: this.state.progress + 10 })
     }
 
     componentDidMount() {
@@ -60,6 +65,7 @@ class Player extends Component {
                         <tr><td>Password</td><td>{this.state.player.password}</td></tr>
                     </tbody>
                 </Table>
+                {/* <Progress className="bar" value={this.state.progress} onClick={this.handleBar} /><br/> */}
                 <div className="userCP">
                 <Button className="userCPbutton" href={"/usercp/" + this.props.match.params.id}>userCP</Button>
                 </div>
@@ -69,7 +75,7 @@ class Player extends Component {
                 <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} className={this.props.className}>
                     <ModalBody toggle={this.toggle}>Are you sure you want to delete {this.state.player.username}?</ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={this.handleDelete}>Yes</Button>{' '}
+                        <Button color="danger" onClick={this.handleDelete}>Yes</Button>{' '}
                         <Button color="secondary" onClick={this.toggle}>No</Button>
                     </ModalFooter>
                 </Modal>

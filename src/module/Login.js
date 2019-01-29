@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import Logo from './Logo';
 import '../style/Login.css';
-import { BrowserRouter as Link } from "react-router-dom";
 import axios from 'axios';
 const bcrypt = require('bcryptjs');
 

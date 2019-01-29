@@ -39,3 +39,9 @@
     margin-top: 20px;
     width: 150px;
 }
+
+.bar {
+    position: relative;
+    margin-left: 30vw;
+    width: 50vh;
+}
