@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import axios from 'axios';
 
-class AmendAccount extends Component {
+class Amend extends Component {
     constructor() {
         super();
         this.state = {
-            id: 2,
             account: [],
             username: "",
             oldPassword: "",
@@ -16,6 +15,9 @@ class AmendAccount extends Component {
         };
     }
 
+    handleidChange = (event) => {
+        this.setState({ id: event.target.value });
+    }
     handleUsernameChange = (event) => {
         this.setState({ username: event.target.value });
     }
@@ -33,13 +35,16 @@ class AmendAccount extends Component {
     }
 
     test = () => {
-        console.log(this.props.id);
+        console.log(this.state.id);
+    }
+    handleBack = () => {
+        this.props.history.push('/players/' + this.props.match.params.id)
     }
 
     componentDidMount() {
         axios({
             method: "get",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + this.state.id,
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + this.props.match.params.id,
             responseType: "json"
         }).then(response => {
             this.setState({ account: response.data });
@@ -49,27 +54,29 @@ class AmendAccount extends Component {
     handleNewUsername = () => {
         axios({
             method: "put",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + this.state.id,
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + this.props.match.params.id,
             data: {
                 username: this.state.username,
                 password: this.state.account.password,
                 email: this.state.account.email
             }
+        }).then(() => {
+            this.handleBack();
         });
-        window.location.reload();
     }
 
     handleNewEmail = () => {
         axios({
             method: "put",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + this.state.id,
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + this.props.match.params.id,
             data: {
                 username: this.state.account.username,
                 password: this.state.account.password,
                 email: this.state.email
             }
+        }).then(() => {
+            this.handleBack();
         });
-        window.location.reload();
     }
 
     render() {
@@ -104,10 +111,9 @@ class AmendAccount extends Component {
                     </FormGroup>
                     <Button className="changePasswordButton" onClick={this.handleNewPassword}>Change password</Button>
                 </Form >
-                <Button className="testID" onClick={this.test}>get ID</Button>
             </div >
         );
     }
 }
 
-export default AmendAccount;
+export default Amend;

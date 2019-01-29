@@ -6,7 +6,7 @@ import Weapon from './Weapon';
 import Player from './Player';
 import WeaponList from './WeaponList';
 import PlayerList from './PlayerList';
-import AmendAccount from './AmendAccount';
+import Amend from './Amend';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Routing extends Component {
@@ -40,7 +40,7 @@ class Routing extends Component {
           <Route exact path="/weapons/:id" component={Weapon} />
           <Route exact path="/players" component={PlayerList} />
           <Route exact path="/players/:id" component={Player} />
-          <Route exact path="/usercp" render={() => <AmendAccount component={AmendAccount} id={this.state.id} />} />
+          <Route exact path="/usercp/:id" component={Amend} />
         </div>
       </Router>
     );

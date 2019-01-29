@@ -44,11 +44,13 @@
   
 
   .signout {
-      position: fixed;
-      height: 60px;
-      top: 4px;
-      right: 4px;
-      border-radius: 400px;
+    position: fixed;
+    height: 60px;
+    top: 12px;
+    right: 12px;
+    border-radius: 100px;
+    padding: 4px;
+    background-color: white;
   }
 
   @keyframes img-spin {
