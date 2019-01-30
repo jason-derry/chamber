@@ -38,7 +38,6 @@ class WeaponList extends Component {
             <tr onClick={this.handleClick.bind(this, item)}>
                 <td>{item.name}</td>
                 <td>{item.type}</td>
-                <td>{item.ammo}</td>
                 <td>${item.price}</td>
             </tr>
         ));
@@ -49,7 +48,6 @@ class WeaponList extends Component {
                     <thead><tr onClick={this.handleBack}>
                         <th>Name</th>
                         <th>Type</th>
-                        <th>Ammo</th>
                         <th>Cost</th>
                     </tr></thead>
                     <tbody>
