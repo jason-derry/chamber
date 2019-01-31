@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Table, Button, Modal, ModalBody, ModalFooter, Progress } from 'reactstrap';
+import { Table, Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import '../style/Weapon.css';
-import { stringify } from 'querystring';
 
 
 class Player extends Component {
@@ -26,10 +25,6 @@ class Player extends Component {
 
     handleClick = () => {
         this.props.history.push('/players/');
-    }
-
-    handleBar = () => {
-        this.setState({ progress: this.state.progress + 10 })
     }
 
     componentDidMount() {
@@ -68,7 +63,6 @@ class Player extends Component {
                         <tr><td>Password</td><td>{this.state.player.password}</td></tr>
                     </tbody>
                 </Table>
-                {/* <Progress className="bar" value={this.state.progress} onClick={this.handleBar} /><br/> */}
                 {JSON.parse(sessionStorage.getItem("user")).id === parseInt(this.props.match.params.id) &&
                 JSON.parse(sessionStorage.getItem("user")).password === this.state.player.password &&
                 <div>
