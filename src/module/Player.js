@@ -67,7 +67,7 @@ class Player extends Component {
                 JSON.parse(sessionStorage.getItem("user")).password === this.state.player.password &&
                 <div>
                     <div className="userCP">
-                    <Button className="userCPbutton" href={"/usercp/" + this.props.match.params.id}>userCP</Button>
+                    <Button className="userCPbutton" href={"/usercp/"}>userCP</Button>
                     </div>
                     <div className="delAcc">
                     <Button className="delAccButton" color="danger" onClick={this.toggle}>Delete Account</Button>

@@ -34,7 +34,7 @@ class Amend extends Component {
         this.setState({ passwordConf: event.target.value });
     }
 
-    handleBack = () => {
+    handleSubmit = () => {
         axios({
             method: "get",
             url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + JSON.parse(sessionStorage.getItem("user")).id,
@@ -43,6 +43,10 @@ class Amend extends Component {
             sessionStorage.removeItem("user");
             sessionStorage.setItem("user", JSON.stringify(response.data));
         })
+        this.props.history.push('/players/' + JSON.parse(sessionStorage.getItem("user")).id)
+    }
+
+    handleBack = () => {
         this.props.history.push('/players/' + JSON.parse(sessionStorage.getItem("user")).id)
     }
 
@@ -56,7 +60,7 @@ class Amend extends Component {
                 email: JSON.parse(sessionStorage.getItem("user")).email
             }
         }).then(() => {
-            this.handleBack();
+            this.handleSubmit();
         });
     }
 
@@ -70,7 +74,7 @@ class Amend extends Component {
                 email: this.state.email
             }
         }).then(() => {
-            this.handleBack();
+            this.handleSubmit();
         });
     }
 
@@ -86,7 +90,7 @@ class Amend extends Component {
                     email: JSON.parse(sessionStorage.getItem("user")).email
                 }
             }).then(() => {
-                this.handleBack();
+                this.handleSubmit();
             });
         } else {
             console.log("passwords don't match")
