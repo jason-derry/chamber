@@ -21,6 +21,7 @@ class Login extends Component {
         this.setState({ password: event.target.value });
     }
 
+    
     handleInput = () => {
         axios({
             method: "get",
@@ -30,14 +31,15 @@ class Login extends Component {
             let accounts = response.data;
             for (let account = 0; account < accounts.length; account++) {
                 if (((this.state.username === accounts[account].username) || (this.state.username === accounts[account].email)) &&
-                    (bcrypt.compareSync(this.state.password, accounts[account].password))) {
+                (bcrypt.compareSync(this.state.password, accounts[account].password))) {
+                    sessionStorage.setItem("user", accounts[account]);
                     this.props.history.push("/");
                 }
             }
         });
     }
-
-
+    
+    
     render() {
         return (
             <div>
