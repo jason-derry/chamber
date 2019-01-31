@@ -30,12 +30,16 @@ class Navigation extends Component {
         });
     }
 
+    handleSignOut() {
+        console.log("signing out " + sessionStorage.getItem("user"));
+        sessionStorage.clear();
+    }
 
     render() {
         return (
             <div>
                 <a href="/login">
-                <img className="signout" src="https://image.freepik.com/free-icon/power-symbol-in-a-circle-in-black-and-white_318-50454.jpg" alt="sign out"/>
+                <img className="signout" src="https://image.freepik.com/free-icon/power-symbol-in-a-circle-in-black-and-white_318-50454.jpg" onClick={this.handleSignOut.bind(this)} alt="sign out"/>
                 </a>
                 <div className="navLogo"><Logo /></div>
 

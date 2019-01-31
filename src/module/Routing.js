@@ -7,6 +7,7 @@ import Player from './Player';
 import WeaponList from './WeaponList';
 import PlayerList from './PlayerList';
 import Amend from './Amend';
+import { PrivateRoute } from './PrivateRoute.jsx';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Routing extends Component {
@@ -15,14 +16,7 @@ class Routing extends Component {
 
     this.state = {
       isLoggedIn: false,
-      id: -1
     };
-
-    this.handleID = this.handleID.bind(this)
-  }
-
-  handleID() {
-    this.setState({ id: this.props.uid })
   }
 
   componentDidMount() {
@@ -33,14 +27,14 @@ class Routing extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/login" render={(props) => <Login component={Login} {...props} id={this.state.id} handleID={this.handleID} />} />
-          <Route exact path="/" component={Navigation} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/weapons" component={WeaponList} />
-          <Route exact path="/weapons/:id" component={Weapon} />
-          <Route exact path="/players" component={PlayerList} />
-          <Route exact path="/players/:id" component={Player} />
-          <Route exact path="/usercp/:id" component={Amend} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <PrivateRoute exact path="/" component={Navigation} />
+          <PrivateRoute exact path="/weapons" component={WeaponList} />
+          <PrivateRoute path="/weapons/:id" component={Weapon} />
+          <PrivateRoute exact path="/players" component={PlayerList} />
+          <PrivateRoute path="/players/:id" component={Player} />
+          <PrivateRoute path="/usercp" component={Amend} />
         </div>
       </Router>
     );

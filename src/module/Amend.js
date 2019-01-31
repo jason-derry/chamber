@@ -7,7 +7,6 @@ class Amend extends Component {
     constructor() {
         super();
         this.state = {
-            account: [],
             username: "",
             oldPassword: "",
             password: "",
@@ -36,27 +35,25 @@ class Amend extends Component {
     }
 
     handleBack = () => {
-        this.props.history.push('/players/' + this.props.match.params.id)
-    }
-
-    componentDidMount() {
         axios({
             method: "get",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + this.props.match.params.id,
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + JSON.parse(sessionStorage.getItem("user")).id,
             responseType: "json"
         }).then(response => {
-            this.setState({ account: response.data });
-        });
+            sessionStorage.removeItem("user");
+            sessionStorage.setItem("user", JSON.stringify(response.data));
+        })
+        this.props.history.push('/players/' + JSON.parse(sessionStorage.getItem("user")).id)
     }
 
     handleNewUsername = () => {
         axios({
             method: "put",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + this.props.match.params.id,
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + JSON.parse(sessionStorage.getItem("user")).id,
             data: {
                 username: this.state.username,
-                password: this.state.account.password,
-                email: this.state.account.email
+                password: JSON.parse(sessionStorage.getItem("user")).password,
+                email: JSON.parse(sessionStorage.getItem("user")).email
             }
         }).then(() => {
             this.handleBack();
@@ -66,10 +63,10 @@ class Amend extends Component {
     handleNewEmail = () => {
         axios({
             method: "put",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + this.props.match.params.id,
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + JSON.parse(sessionStorage.getItem("user")).id,
             data: {
-                username: this.state.account.username,
-                password: this.state.account.password,
+                username: JSON.parse(sessionStorage.getItem("user")).username,
+                password: JSON.parse(sessionStorage.getItem("user")).password,
                 email: this.state.email
             }
         }).then(() => {
@@ -82,11 +79,11 @@ class Amend extends Component {
             var hash = bcrypt.hashSync(this.state.password, 10);
             axios({
                 method: "put",
-                url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + this.props.match.params.id,
+                url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + JSON.parse(sessionStorage.getItem("user")).id,
                 data: {
-                    username: this.state.account.username,
+                    username: JSON.parse(sessionStorage.getItem("user")).username,
                     password: hash,
-                    email: this.state.account.email
+                    email: JSON.parse(sessionStorage.getItem("user")).email
                 }
             }).then(() => {
                 this.handleBack();

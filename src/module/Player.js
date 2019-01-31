@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Table, Button, Modal, ModalBody, ModalFooter, Progress } from 'reactstrap';
 import '../style/Weapon.css';
+import { stringify } from 'querystring';
 
 
 class Player extends Component {
@@ -32,6 +33,8 @@ class Player extends Component {
     }
 
     componentDidMount() {
+        console.log(JSON.parse(sessionStorage.getItem("user")).id);
+        console.log(this.props.match.params.id);
         axios({
             method: "get",
             url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + this.props.match.params.id,
@@ -66,19 +69,24 @@ class Player extends Component {
                     </tbody>
                 </Table>
                 {/* <Progress className="bar" value={this.state.progress} onClick={this.handleBar} /><br/> */}
-                <div className="userCP">
-                <Button className="userCPbutton" href={"/usercp/" + this.props.match.params.id}>userCP</Button>
-                </div>
-                <div className="delAcc">
-                <Button className="delAccButton" color="danger" onClick={this.toggle}>Delete Account</Button>
-                </div>
+                {JSON.parse(sessionStorage.getItem("user")).id === parseInt(this.props.match.params.id) &&
+                JSON.parse(sessionStorage.getItem("user")).password === this.state.player.password &&
+                <div>
+                    <div className="userCP">
+                    <Button className="userCPbutton" href={"/usercp/" + this.props.match.params.id}>userCP</Button>
+                    </div>
+                    <div className="delAcc">
+                    <Button className="delAccButton" color="danger" onClick={this.toggle}>Delete Account</Button>
+                    </div>
                 <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} className={this.props.className}>
-                    <ModalBody toggle={this.toggle}>Are you sure you want to delete {this.state.player.username}?</ModalBody>
+                    <ModalBody toggle={this.toggle}>Are you sure you want to delete {JSON.parse(sessionStorage.getItem("user")).username}?</ModalBody>
                     <ModalFooter>
                         <Button color="danger" onClick={this.handleDelete}>Yes</Button>{' '}
                         <Button color="secondary" onClick={this.toggle}>No</Button>
                     </ModalFooter>
                 </Modal>
+                </div>
+                }
             </div>
         );
     }

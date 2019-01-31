@@ -32,7 +32,8 @@ class Login extends Component {
             for (let account = 0; account < accounts.length; account++) {
                 if (((this.state.username === accounts[account].username) || (this.state.username === accounts[account].email)) &&
                 (bcrypt.compareSync(this.state.password, accounts[account].password))) {
-                    sessionStorage.setItem("user", accounts[account]);
+                    sessionStorage.setItem("user", JSON.stringify(accounts[account]));
+                    console.log(sessionStorage.getItem("user"));
                     this.props.history.push("/");
                 }
             }
