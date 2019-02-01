@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Table } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
 import '../style/Weapon.css';
 
 
@@ -23,6 +23,15 @@ class Weapon extends Component {
         }).then(response => {
             this.setState({ weapon: response.data });
         })
+    }
+
+    handleBuyWep = () => {
+        axios({
+            method: "post",
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/addWepToAcc/" + JSON.parse(sessionStorage.getItem("user")).id +"/"+ this.props.match.params.id 
+        }).then(() => {
+            this.handleClick();
+        });
     }
 
     render() {
@@ -48,6 +57,7 @@ class Weapon extends Component {
                     </tbody>
 
                 </Table>
+                <Button onClick={this.handleBuyWep}>buy</Button>
             </div>
         );
     }
