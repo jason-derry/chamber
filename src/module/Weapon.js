@@ -8,7 +8,10 @@ class Weapon extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { weapon: [] };
+        this.state = { 
+            weapon: [],
+            cash: null
+        };
     }
 
     handleClick = () => {
@@ -27,11 +30,31 @@ class Weapon extends Component {
 
     handleBuyWep = () => {
         axios({
-            method: "post",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/addWepToAcc/" + JSON.parse(sessionStorage.getItem("user")).id +"/"+ this.props.match.params.id 
-        }).then(() => {
-            this.handleClick();
-        });
+            method: "get",
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + JSON.parse(sessionStorage.getItem("user")).id,
+            responseType: "json"
+        }).then(response => {
+            this.setState({ cash: response.data.cash });
+            if (this.state.cash >= this.state.weapon.price) {
+                axios({
+                    method: "post",
+                    url: "http://3.8.14.10:8081/chamber-api/api/chamber/addWepToAcc/" + JSON.parse(sessionStorage.getItem("user")).id +"/"+ this.props.match.params.id 
+                }).then(() => {
+                    axios({
+                        method: "put",
+                        url: "http://3.8.14.10:8081/chamber-api/api/chamber/amendAccount/" + JSON.parse(sessionStorage.getItem("user")).id,
+                        data: {
+                            username: JSON.parse(sessionStorage.getItem("user")).username,
+                            password: JSON.parse(sessionStorage.getItem("user")).password,
+                            email: JSON.parse(sessionStorage.getItem("user")).email,
+                            cash: this.state.cash - this.state.weapon.price
+                        }
+                    }).then(() => {
+                        this.handleClick();
+                    })
+                });
+            }
+        })
     }
 
     render() {

@@ -57,7 +57,8 @@ class Amend extends Component {
             data: {
                 username: this.state.username,
                 password: JSON.parse(sessionStorage.getItem("user")).password,
-                email: JSON.parse(sessionStorage.getItem("user")).email
+                email: JSON.parse(sessionStorage.getItem("user")).email,
+                cash: JSON.parse(sessionStorage.getItem("user")).cash
             }
         }).then(() => {
             this.handleSubmit();
@@ -71,7 +72,8 @@ class Amend extends Component {
             data: {
                 username: JSON.parse(sessionStorage.getItem("user")).username,
                 password: JSON.parse(sessionStorage.getItem("user")).password,
-                email: this.state.email
+                email: this.state.email,
+                cash: JSON.parse(sessionStorage.getItem("user")).cash
             }
         }).then(() => {
             this.handleSubmit();
@@ -87,7 +89,8 @@ class Amend extends Component {
                 data: {
                     username: JSON.parse(sessionStorage.getItem("user")).username,
                     password: hash,
-                    email: JSON.parse(sessionStorage.getItem("user")).email
+                    email: JSON.parse(sessionStorage.getItem("user")).email,
+                    cash: JSON.parse(sessionStorage.getItem("user")).cash
                 }
             }).then(() => {
                 this.handleSubmit();

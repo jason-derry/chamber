@@ -39,7 +39,8 @@ class Register extends Component {
                     data: {
                         username: this.state.username,
                         password: hash,
-                        email: this.state.email
+                        email: this.state.email,
+                        cash: 3000
                     }
                 });
                 this.props.history.push('/');
