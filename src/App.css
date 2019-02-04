@@ -9,4 +9,15 @@
   top: 0%;
   height: 100%;
   width: 100%;
+  z-index: -1;
+}
+
+.backButton {
+  position: fixed;
+  height: 60px;
+  top: 12px;
+  left: 12px;
+  border-radius: 100px;
+  padding: 4px;
+  background-color: white;
 }

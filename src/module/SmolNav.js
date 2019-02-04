@@ -12,9 +12,9 @@ import {
     DropdownItem
 } from 'reactstrap';
 import Logo from './Logo';
-import './Navigation.css';
+import '../style/Navigation.css';
 
-class Navigation extends Component {
+class SmolNav extends Component {
 
     constructor(props) {
         super(props);
@@ -33,11 +33,11 @@ class Navigation extends Component {
 
     render() {
         return (
-            <div className="navbar">
-                <a href="/login">
+            <div className="smolNav">
+                {/* <a href="/login">
                 <img className="signout" src="https://image.freepik.com/free-icon/power-symbol-in-a-circle-in-black-and-white_318-50454.jpg" alt="sign out"/>
-                </a>
-                <div className="navLogo"><Logo /></div>
+                </a> */}
+                {/* <div className="navLogo"><Logo /></div> */}
 
                 <Navbar dark color="dark" light expand="md">
                     <NavbarToggler onClick={this.toggle} />
@@ -82,4 +82,4 @@ class Navigation extends Component {
     }
 }
 
-export default Navigation;
+export default SmolNav;

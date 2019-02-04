@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from 'reactstrap';
-import './WeaponList.css';
+import '../style/WeaponList.css';
 
 
-class PlayerList extends Component {
+class PlayerWeaponList extends Component {
     constructor(props) {
         super(props);
 
@@ -12,35 +12,29 @@ class PlayerList extends Component {
     }
 
     handleBack = () => {
-        this.props.history.push('/');
-    }
-
-    handleClick = (item) => {
-        this.props.history.push('/players/' + item.id);
+        this.props.history.push('/players/' + this.props.match.params.id);
     }
 
     componentDidMount() {
         axios({
             method: "get",
-            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAllAccounts",
+            url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + this.props.match.params.id,
             responseType: "json"
         }).then(response => {
-            this.setState({ player: response.data });
+            this.setState({ player: response.data.weapons });
+            console.log(this.state.player);
         })
     }
 
- 
-
     render() {
-        const players = this.state.player.map((item, i) => (
-            <tr onClick={this.handleClick.bind(this, item)}>
-                <td>{item.username}</td>
+        const players = this.state.player.map((item) => (
+            <tr>
+                <td>{item.name}</td>
             </tr>
         ));
 
         return (
             <div id="layout-content" className="layout-content-wrapper">
-                {/* <Navigation /> */}
                 <Table dark bordered hover striped size="m">
                     <thead><tr onClick={this.handleBack}>
                         <th>Name</th>
@@ -53,4 +47,4 @@ class PlayerList extends Component {
         );
     }
 }
-export default PlayerList;
+export default PlayerWeaponList;

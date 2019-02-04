@@ -1,4 +1,4 @@
-.navbar {
+  .navbar {
     display: block;
     margin-top: 2.5vh;
     margin-left: auto;
@@ -28,7 +28,8 @@
           -2px 2px 0 #000,
           2px 2px 0 #000;
     font-size: 10vh;
-    margin-top: 25vh;
+    margin-top: 28vh;
+    margin-left: 15px;
   }
 
   .text {
@@ -43,11 +44,13 @@
   
 
   .signout {
-      position: fixed;
-      height: 60px;
-      top: 4px;
-      right: 4px;
-      border-radius: 400px;
+    position: fixed;
+    height: 60px;
+    top: 12px;
+    right: 12px;
+    border-radius: 100px;
+    padding: 4px;
+    background-color: white;
   }
 
   @keyframes img-spin {
