@@ -21,8 +21,8 @@ class Login extends Component {
         this.setState({ password: event.target.value });
     }
 
-    
-    handleInput = () => {
+
+    handleInput = (e) => {
         axios({
             method: "get",
             url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAllAccounts",
@@ -31,22 +31,23 @@ class Login extends Component {
             let accounts = response.data;
             for (let account = 0; account < accounts.length; account++) {
                 if (((this.state.username === accounts[account].username) || (this.state.username === accounts[account].email)) &&
-                (bcrypt.compareSync(this.state.password, accounts[account].password))) {
+                    (bcrypt.compareSync(this.state.password, accounts[account].password))) {
                     sessionStorage.setItem("user", JSON.stringify(accounts[account]));
                     console.log(sessionStorage.getItem("user"));
                     this.props.history.push("/");
                 }
             }
         });
+        e.preventDefault();
     }
-    
-    
+
+
     render() {
         return (
             <div>
                 <div className="logLogo"><Logo /></div>
                 <div className="login">
-                    <Form>
+                    <Form onSubmit={this.handleInput}>
                         <FormGroup inline>
                             <Label for="username" hidden>username</Label>
                             <Input type="username" name="username" id="username" placeholder="username/email" value={this.state.username} onChange={this.handleUsernameChange} />
@@ -55,10 +56,10 @@ class Login extends Component {
                             <Label for="password" hidden>password</Label>
                             <Input type="password" name="password" id="password" placeholder="password" value={this.state.password} onChange={this.handlePasswordChange} />
                         </FormGroup>
-                        <Button className="loginButton" onClick={this.handleInput}>Login</Button>
+                        <Button type="submit" className="loginButton">Login</Button>
                         <br />
-                        <a href="/register">Create Account</a>
                     </Form>
+                    <a href="/register">Create Account</a>
                 </div>
             </div>
         );

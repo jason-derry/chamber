@@ -57,7 +57,7 @@ class Register extends Component {
             <div>
                 <div className="logLogo"><Logo /></div>
                 <div className="register">
-                    <Form>
+                    <Form onSubmit={this.handleInput}>
                         <FormGroup inline>
                             <Label for="username" hidden>username</Label>
                             <Input type="username" name="username" id="username" placeholder="username" value={this.state.username} onChange={this.handleUsernameChange} required />
@@ -72,9 +72,9 @@ class Register extends Component {
                         </FormGroup>
                         <FormGroup>
                             <Label for="passwordConf" hidden>password</Label>
-                            <Input type="password" name="passwordConf" id="passwordConf" placeholder="confirm password" onChange={this.handlePasswordChangeConf} required />
+                            <Input type="password" name="passwordConf" id="passwordConf" placeholder="confirm password" value={this.state.passwordConf} onChange={this.handlePasswordChangeConf} required />
                         </FormGroup>
-                        <Button className="createAccButton" onClick={this.handleInput}>Create account</Button>
+                        <Button type="submit" className="createAccButton">Create account</Button>
                     </Form>
                 </div>
             </div>

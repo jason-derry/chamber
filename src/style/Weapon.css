@@ -1,7 +1,7 @@
 .gunImage {
-    position: relative;
-    top: 0px;
-    left: 65%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 300px;
     background-color: rgba(255,255,255,0.8);
     padding: 20px;
@@ -48,4 +48,9 @@
 
 .playerDeets {
     white-space: pre-line;
+}
+
+.buyButton {
+    text-align:center;
+    margin:auto;
 }
