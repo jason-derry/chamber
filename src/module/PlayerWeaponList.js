@@ -8,7 +8,7 @@ class PlayerWeaponList extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { player: [] };
+        this.state = { weapon: [] };
     }
 
     handleBack = () => {
@@ -21,13 +21,12 @@ class PlayerWeaponList extends Component {
             url: "http://3.8.14.10:8081/chamber-api/api/chamber/getAccount/" + this.props.match.params.id,
             responseType: "json"
         }).then(response => {
-            this.setState({ player: response.data.weapons });
-            console.log(this.state.player);
+            this.setState({ weapon: response.data.weapons });
         })
     }
 
     render() {
-        const players = this.state.player.map((item) => (
+        const weapons = this.state.weapon.map((item) => (
             <tr>
                 <td>{item.name}</td>
                 <td>{item.ammo}</td>
@@ -42,7 +41,7 @@ class PlayerWeaponList extends Component {
                         <th>Ammo</th>
                     </tr></thead>
                     <tbody>
-                        {players}
+                        {weapons}
                     </tbody>
                 </Table>
             </div>
