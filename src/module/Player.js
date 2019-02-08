@@ -85,7 +85,6 @@ class Player extends Component {
                         </tr></thead>
                         <tbody>
                             <tr><td>Name</td><td>{this.state.player.username}</td></tr>
-                            <tr><td>Email</td><td>{this.state.player.email}</td></tr>
                             <tr><td>Cash</td><td>${this.state.player.cash}</td></tr>
                             <tr onClick={this.handleClick}><td>Weapons</td><td>{this.state.weaponList}</td></tr>
                         </tbody>

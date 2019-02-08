@@ -7,3 +7,9 @@
     width: 60vw;
     max-width: 900px;
 }
+
+.smBuyButton {
+    width: 36px;
+    text-align: center;
+    /* font-size: 2em ! important; */
+}

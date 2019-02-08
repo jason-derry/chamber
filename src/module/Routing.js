@@ -9,7 +9,7 @@ import PlayerList from './PlayerList';
 import PlayerWeaponList from './PlayerWeaponList';
 import Amend from './Amend';
 import { PrivateRoute } from './PrivateRoute.jsx';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Routing extends Component {
   constructor(props) {
