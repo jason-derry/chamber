@@ -30,6 +30,7 @@ class PlayerWeaponList extends Component {
         const players = this.state.player.map((item) => (
             <tr>
                 <td>{item.name}</td>
+                <td>{item.ammo}</td>
             </tr>
         ));
 
@@ -38,6 +39,7 @@ class PlayerWeaponList extends Component {
                 <Table dark bordered hover striped size="m">
                     <thead><tr onClick={this.handleBack}>
                         <th>Name</th>
+                        <th>Ammo</th>
                     </tr></thead>
                     <tbody>
                         {players}
