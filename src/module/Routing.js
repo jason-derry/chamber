@@ -8,6 +8,7 @@ import WeaponList from './WeaponList';
 import PlayerList from './PlayerList';
 import PlayerWeaponList from './PlayerWeaponList';
 import Amend from './Amend';
+import PlayerRaid from './PlayerRaid';
 import { PrivateRoute } from './PrivateRoute.jsx';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -37,6 +38,7 @@ class Routing extends Component {
           <PrivateRoute exact path="/players/:id" component={Player} />
           <PrivateRoute path="/usercp" component={Amend} />
           <PrivateRoute path="/players/weapons/:id" component={PlayerWeaponList} />
+          <PrivateRoute exact path="/raid/:id" component={PlayerRaid} />
         </div>
       </Router>
     );
