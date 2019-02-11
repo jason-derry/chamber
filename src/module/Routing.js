@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 class Routing extends Component {
 
   componentDidMount() {
+    this.forceUpdate();
     console.log(window.location.pathname);
     if (window.location.pathname === "/") {
       this.forceUpdate();
@@ -27,13 +28,7 @@ class Routing extends Component {
         <div>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-
-          {window.location.pathname === "/" ? (
-            <PrivateRoute exact path="/" component={Navigation} />
-          ) : (
-            <PrivateRoute path="/" component={SmolNav} />
-          )}
-
+          <PrivateRoute exact path="/" component={Navigation} />
           <PrivateRoute exact path="/weapons" component={WeaponList} />
           <PrivateRoute path="/weapons/:id" component={Weapon} />
           <PrivateRoute exact path="/players" component={PlayerList} />
