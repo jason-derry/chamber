@@ -8,20 +8,17 @@ import WeaponList from './WeaponList';
 import PlayerList from './PlayerList';
 import PlayerWeaponList from './PlayerWeaponList';
 import Amend from './Amend';
+import SmolNav from './SmolNav';
 import { PrivateRoute } from './PrivateRoute.jsx';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class Routing extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLoggedIn: false,
-    };
-  }
 
   componentDidMount() {
-    console.log(this.state.isLoggedIn);
+    console.log(window.location.pathname);
+    if (window.location.pathname === "/") {
+      this.forceUpdate();
+    }
   }
 
   render() {
@@ -30,7 +27,13 @@ class Routing extends Component {
         <div>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <PrivateRoute exact path="/" component={Navigation} />
+
+          {window.location.pathname === "/" ? (
+            <PrivateRoute exact path="/" component={Navigation} />
+          ) : (
+            <PrivateRoute path="/" component={SmolNav} />
+          )}
+
           <PrivateRoute exact path="/weapons" component={WeaponList} />
           <PrivateRoute path="/weapons/:id" component={Weapon} />
           <PrivateRoute exact path="/players" component={PlayerList} />

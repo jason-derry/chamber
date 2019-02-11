@@ -34,12 +34,12 @@ class SmolNav extends Component {
     render() {
         return (
             <div className="smolNav">
-                {/* <a href="/login">
-                <img className="signout" src="https://image.freepik.com/free-icon/power-symbol-in-a-circle-in-black-and-white_318-50454.jpg" alt="sign out"/>
-                </a> */}
-                {/* <div className="navLogo"><Logo /></div> */}
+                <a href="/login">
+                <img className="signout" src="/logout.jpg" alt="sign out"/>
+                </a>
+                {/* <div className="navLogo" style={{height: '20px'}}><Logo /></div> */}
 
-                <Navbar dark color="dark" light expand="md">
+                <Navbar dark color="dark" light expand="md" style={{width: '60vw', maxWidth: '900px'}}>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav navbar>

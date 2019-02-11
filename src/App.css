@@ -1,7 +1,7 @@
 .bg-image {
   position: fixed;
   /* background-image: url("https://cdn.pyramydair.com/site/manuals/Dan-Wesson-Revolver-BB-Gun-manual/images/Dan-Wesson_BB-Revolver_schema.jpg"); */
-  background-image: url("https://cdn.hipwallpaper.com/i/22/65/vELk8g.jpg");
+  background-image: url("./images/steel_background.jpg");
   /* filter: blur(2px);
   -webkit-filter: blur(2px); */
   background-size: cover;
